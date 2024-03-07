@@ -13,7 +13,7 @@
 
   <body>
     <main class="flex">
-        <nav class="flex w-full">
+        <nav class="flex">
             <div class="w-64 p-4 h-screen bg-black sticky top-0">
                 <div class="flex flex-col">
                     <%= image_tag 'logo.png', class: 'w-16 mx-auto' %>
@@ -25,23 +25,27 @@
                         <%= link_to "Dashboard", root_path %>
                     </li>
                     <li class="text-orange-600 p-3 hover:rounded hover:bg-gray-800 hover:p-3 active:text-orange-800">
-                        <%= icon('fa-solid', 'cart-shopping') %>
-                        <%= link_to "Products", root_path %>
+                        <%= link_to root_path do%>
+                            <%= icon('fa-solid', 'cart-shopping') %>
+                            <span>Productos</span>
+                        <% end %>
                     </li>
                     <li class="text-orange-600 p-3 hover:rounded hover:bg-gray-800 hover:p-3 active:text-orange-800">
-                        <%= icon('fa-solid', 'list') %>
-                        <%= link_to "Categories", root_path %>
+                        <%= link_to admin_categories_path do %>
+                            <%= icon('fa-solid', 'list') %>
+                            <span>Categorías</span>
+                        <% end %>
                     </li>
                     <li class="text-orange-600 p-3 hover:rounded hover:bg-gray-800 hover:p-3 active:text-orange-800">
                         <%= icon('fa-solid', 'truck-fast') %>
-                        <%= link_to "Orders", root_path %>
+                        <%= link_to "Pedidos", root_path %>
                     </li>
                 </ul>
             </div>
         </nav>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-        <%= yield %>
+        <div class="p-8 w-full">
+            <%= yield %>
+        </div>
     </main>
   </body>
 </html>
