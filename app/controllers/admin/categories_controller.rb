@@ -25,7 +25,7 @@ class Admin::CategoriesController < AdminController
 
     respond_to do |format|
       if @admin_category.save
-        format.html { redirect_to admin_category_url(@admin_category), notice: "Category was successfully created." }
+        format.html { redirect_to admin_category_url(@admin_category), notice: "La categoría se creó correctamente." }
         format.json { render :show, status: :created, location: @admin_category }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class Admin::CategoriesController < AdminController
     @admin_category.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_categories_url, notice: "Category was successfully destroyed." }
+      format.html { redirect_to admin_categories_url, notice: "La categoría se eliminó correctamente." }
       format.json { head :no_content }
     end
   end
@@ -65,6 +65,6 @@ class Admin::CategoriesController < AdminController
 
     # Only allow a list of trusted parameters through.
     def admin_category_params
-      params.require(:category).permit(:name, :description)
+      params.require(:category).permit(:name, :description, :image)
     end
 end
